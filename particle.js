@@ -166,7 +166,7 @@ function trueDiff(diff) { //Finds out whether or not your rotation will break if
 
 }
 
-/*var gui = new dat.GUI();
+var gui = new dat.GUI();
 gui.add(settings, "frictionLimit");
 gui.add(settings, "frictionMultip");
 gui.add(settings, "strongForce");
@@ -180,4 +180,4 @@ gui.add(settings, "mode");
 gui.add(settings, "newChance");
 gui.add(settings, "maxCount");
 gui.add(settings, "puberty");
-gui.add(settings, "death");*/
+gui.add(settings, "death");
