@@ -18,13 +18,9 @@ var q = new Particle(new Vector(150, 500), new Vector(500, 0));
 q.drawColor = "rgb(128,155,100)";
 var r = new Particle(new Vector(450, 500), new Vector(0, 0));
 
-var count;
-if (count == null) {
-    count = 2;
-}
-
+console.log(settings.count);
 var particles = [];
-for (var i = 0; i < count; i++) {
+for (var i = 0; i < settings.count; i++) {
     addNewParticle(new Vector(Math.random() * canvas.width, Math.random() * canvas.width));
 }
 
@@ -65,10 +61,10 @@ function plotParticles(boundsX, boundsY) {
         var pos = particle.position;
 
         particle.move();
-        if (mode == 1) {
+        if (settings.mode == 1) {
             particle.position.x = ((pos.x % boundsX) + boundsX) % boundsX; //Wrap around, but also deal with javascript's sh*tty "%" tool
             particle.position.y = ((pos.y % boundsY) + boundsY) % boundsY; //JAVASCRIPT, % IS NOT SUPPOSED TO GIVE YOU A NEGATIVE JFC
-        } else if (mode == 2) {
+        } else if (settings.mode == 2) {
             if (particle.position.x < 0) { //bounce
                 particle.position.x = 0;
                 particle.velocity.x *= -1;
