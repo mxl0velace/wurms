@@ -6,11 +6,6 @@ var ctx = canvas.getContext('2d');
 canvas.height = window.innerHeight - bd;
 canvas.width = window.innerWidth - bd;
 
-var mode; //0:none, 1:loop, 2:bounce
-if (mode == null) {
-    mode = 2;
-}
-
 //Testing balls Pedro, Queenie and Robert
 var p = new Particle(new Vector(350, 500), new Vector(1, 0));
 p.drawColor = "rgb(255,0,0)";
@@ -18,7 +13,6 @@ var q = new Particle(new Vector(150, 500), new Vector(500, 0));
 q.drawColor = "rgb(128,155,100)";
 var r = new Particle(new Vector(450, 500), new Vector(0, 0));
 
-console.log(settings.count);
 var particles = [];
 for (var i = 0; i < settings.count; i++) {
     addNewParticle(new Vector(Math.random() * canvas.width, Math.random() * canvas.width));
