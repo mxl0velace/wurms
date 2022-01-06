@@ -14,9 +14,14 @@ q.drawColor = "rgb(128,155,100)";
 var r = new Particle(new Vector(450, 500), new Vector(0, 0));
 
 var particles = [];
-for (var i = 0; i < settings.count; i++) {
-    addNewParticle(new Vector(Math.random() * canvas.width, Math.random() * canvas.width));
+
+function reset(){
+    particles = [];
+    for (var i = 0; i < settings.count; i++) {
+        addNewParticle(new Vector(Math.random() * canvas.width, Math.random() * canvas.width));
+    }
 }
+
 
 function addNewParticle(position) {
     var o = new Particle(position);
@@ -103,4 +108,15 @@ function onResize() { //this is pretty fun, you can make the balls spread out th
     canvas.width = window.innerWidth - bd;
 }
 
+document.addEventListener('keypress', logKey);
+
+function logKey(e) {
+    if(document.activeElement.nodeName != "INPUT"){
+        if(e.key == "r"){
+            reset();
+        }
+    }
+}
+
+reset();
 loop();
