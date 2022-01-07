@@ -108,13 +108,34 @@ function onResize() { //this is pretty fun, you can make the balls spread out th
     canvas.width = window.innerWidth - bd;
 }
 
+function applyForceAt(x,y) {
+    var pos = new Vector(x,y);
+    var npos = pos.Rmultiply(-1);
+    for (var i = 0; i < particles.length; i++) {
+        var particle = particles[i];
+        var distance = particle.position.distanceFrom(pos).getMagnitude();
+        if (distance <= settings.clickRange) {
+            var force = particle.position.Radd(npos);
+            force.multiply(settings.clickForce / force.getMagnitude());
+            particle.velocity.add(force);
+        }
+    }
+}
+
 document.addEventListener('keypress', logKey);
+document.addEventListener('click', onClick);
 
 function logKey(e) {
     if(document.activeElement.nodeName != "INPUT"){
         if(e.key == "r"){
             reset();
         }
+    }
+}
+
+function onClick(e) {
+    if(document.activeElement.nodeName != "INPUT" && e.target == canvas){
+        applyForceAt(e.clientX, e.clientY);
     }
 }
 

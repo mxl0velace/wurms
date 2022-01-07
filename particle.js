@@ -30,7 +30,9 @@ var settings = {
     newChance: 0.05,
     maxCount: 200,
     puberty: 100,
-    death: -1
+    death: -1,
+    clickForce: 5,
+    clickRange: 50
 }
 
 //FUN PRESETS:
@@ -181,3 +183,5 @@ gui.add(settings, "newChance");
 gui.add(settings, "maxCount");
 gui.add(settings, "puberty");
 gui.add(settings, "death");
+gui.add(settings, "clickForce");
+gui.add(settings, "clickRange");
