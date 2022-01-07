@@ -32,7 +32,8 @@ var settings = {
     puberty: 100,
     death: -1,
     clickForce: 5,
-    clickRange: 50
+    clickRange: 50,
+    hookStrength: 1,
 }
 
 //FUN PRESETS:
@@ -146,7 +147,7 @@ class Particle {
         //Turning "hook" force range
         else if (distance.getMagnitude() < settings.hookRange) {
             if (this.velocity.getMagnitude() > settings.hookSpeed && particle.velocity.getMagnitude() > settings.hookSpeed) {//This breaks with very slow particles sometimes, and it looks more interesting like this
-                var rotmult = 1 / (distance.getMagnitude() - (this.objectSize + particle.objectSize - 1)); //Inversely proportional to distance
+                var rotmult = settings.hookStrength / (distance.getMagnitude() - (this.objectSize + particle.objectSize - 1)); //Inversely proportional to distance
                 var anglediff = this.velocity.getAngle() - particle.velocity.getAngle() % (Math.PI);
                 this.velocity.rotate(-trueDiff(anglediff) * rotmult); //look just trust me dont take away the minus (also that would be cool maybe try that?)
             }
@@ -174,6 +175,7 @@ gui.add(settings, "frictionMultip");
 gui.add(settings, "strongForce");
 gui.add(settings, "hookRange");
 gui.add(settings, "hookSpeed");
+gui.add(settings, "hookStrength");
 gui.add(settings, "speedLimit");
 gui.add(settings, "speedSizing");
 gui.add(settings, "maxSize");
