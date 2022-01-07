@@ -170,20 +170,20 @@ function trueDiff(diff) { //Finds out whether or not your rotation will break if
 }
 
 var gui = new dat.GUI();
-gui.add(settings, "frictionLimit");
-gui.add(settings, "frictionMultip");
-gui.add(settings, "strongForce");
-gui.add(settings, "hookRange");
-gui.add(settings, "hookSpeed");
-gui.add(settings, "hookStrength");
-gui.add(settings, "speedLimit");
-gui.add(settings, "speedSizing",0,3,1);
-gui.add(settings, "maxSize");
-gui.add(settings, "count");
-gui.add(settings, "mode",0,2,1);
-gui.add(settings, "newChance");
-gui.add(settings, "maxCount");
-gui.add(settings, "puberty");
-gui.add(settings, "death");
-gui.add(settings, "clickForce");
-gui.add(settings, "clickRange");
+gui.add(settings, "frictionLimit").name("Friction limit");
+gui.add(settings, "frictionMultip").name("Friction multiplier");
+gui.add(settings, "strongForce").name("Strong force");
+gui.add(settings, "hookRange").name("Hook range");
+gui.add(settings, "hookSpeed").name("Hook speed");
+gui.add(settings, "hookStrength").name("Hook strength");
+gui.add(settings, "speedLimit").name("Speed limit");
+gui.add(settings, "speedSizing",0,3,1).name("Speed sizing");
+gui.add(settings, "maxSize").name("Max size");
+gui.add(settings, "count").name("Inital count");
+gui.add(settings, "mode",0,2,1).name("Wrapping mode");
+gui.add(settings, "newChance").name("New chance");
+gui.add(settings, "maxCount").name("Max count");
+gui.add(settings, "puberty").name("Puberty age");
+gui.add(settings, "death").name("Death age");
+gui.add(settings, "clickForce").name("Click force");
+gui.add(settings, "clickRange").name("Click range");
